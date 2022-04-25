@@ -9,10 +9,75 @@ function Book(title, author, pages, read) {
 }
 
 const hobbit = new Book("Hobbit", "J.R.R. Tolkien", "295 pages", "not read");
+let myLibrary = [hobbit];
 
+const bookForm = document.querySelector("#bookForm");
+const addBtn = document.querySelector(".addBtn");
+const formContainer = document.querySelector(".formContainer");
+const addBook = document.querySelector(".addBook");
+
+addBtn.addEventListener("click", () =>
+    // bring out the form
+    {
+        formContainer.classList.remove("hide");
+    }
+);
+addBook.addEventListener("click", () => {
+    formContainer.classList.add("hide");
+    // theres no validation if the button hides the form. find a work around
+});
+
+function createBookCard(book) {
+    const shelf = document.querySelector(".shelf");
+    const bookCard = document.createElement("div");
+    const author = document.createElement("p");
+    const title = document.createElement("p");
+    const pages = document.createElement("p");
+
+    author.textContent = "Author:";
+    title.textContent = "Title:";
+    pages.textContent = "Pages:";
+
+    bookCard.classList.add("bookCard");
+    author.classList.add("author");
+    title.classList.add("title");
+    pages.classList.add("pages");
+
+    bookCard.appendChild(author);
+    bookCard.appendChild(title);
+    bookCard.appendChild(pages);
+    shelf.appendChild(bookCard);
+
+    author.textContent += ` ${book.author}`;
+    title.textContent += ` ${book.title}`;
+    pages.textContent += ` ${book.pages}`;
+}
+
+function displayBook(book) {
+    createBookCard(book);
+    // author = document.querySelector(".author");
+    // title = document.querySelector(".title");
+    // pages = document.querySelector(".pages");
+    // author.textContent += ` ${book.author}`;
+    // title.textContent += ` ${book.title}`;
+    // pages.textContent += ` ${book.pages}`;
+}
+
+myLibrary.forEach(displayBook);
+
+bookForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    // create a new formdata object
+
+    const formData = new FormData(bookForm);
+    const author = formData.get("author");
+    const title = formData.get("bookTitle");
+    const pages = formData.get("pages");
+    console.log(author);
+
+    bookForm.reset();
+});
 // add a function to the script (not the constructor) that can take user’s input and store the new book objects into an array. Your code should look something like this:
-
-let myLibrary = [];
 
 function addBookToLibrary() {
     // do stuff here
