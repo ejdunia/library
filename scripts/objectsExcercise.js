@@ -9,7 +9,7 @@ function Book(author, title, pages) {
 }
 const hobbit = new Book("J.R.R. Tolkien", "Hobbit", "295 pages", "not read");
 
-let myLibrary = [hobbit, hobbit];
+let myLibrary = [hobbit];
 myLibrary.forEach(createBookCard);
 
 const bookForm = document.querySelector("#bookForm");
@@ -29,9 +29,6 @@ bookForm.addEventListener("submit", (event) => {
     bookId = new Book(...formData.values());
     addBookToLibrary(bookId);
     bookForm.reset();
-    // console.log(bookId);
-    // console.log(Object.fromEntries(formData));
-    // console.log(...formData.values());
 });
 
 function addBookToLibrary(book) {
@@ -50,6 +47,17 @@ addBook.addEventListener("click", () => {
     formContainer.classList.add("hiden");
     // theres no validation if the button hides the form. find a work around
 });
+function refreshCardDisplay() {
+    let books = document.querySelectorAll(".bookCard");
+    books.forEach((book) => book.remove());
+}
+
+function refreshBookIndexes() {
+    let bookCard = document.querySelectorAll(".bookCard");
+    for (let i = 0; i < myLibrary.length; i++) {
+        bookCard[i].dataset.bookIndex = i;
+    }
+}
 
 function createBookCard(book) {
     const shelf = document.querySelector(".shelf");
@@ -83,16 +91,18 @@ function createBookCard(book) {
     author.textContent += ` ${book.author}`;
     title.textContent += ` ${book.title}`;
     pages.textContent += ` ${book.pages}`;
-
     bookCard.dataset.author = `${book.author}`;
-    bookCard.dataset.index = myLibrary.length;
+
+    bookCard.dataset.bookIndex = myLibrary.length - 1;
 
     delBtn.addEventListener("click", () => {
-        // alert("sd");
-        
+        refreshBookIndexes();
+        let bookIndex = bookCard.dataset.bookIndex;
+        refreshCardDisplay();
+        myLibrary.splice(bookIndex, 1);
+        myLibrary.forEach(createBookCard);
     });
 
-    console.log(bookCard.dataset.index);
 }
 
 // Add a button on each book’s display to remove the book from the library.
