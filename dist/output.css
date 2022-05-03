@@ -485,10 +485,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-bottom: 1.25rem;
 }
 
-.mt-5 {
-  margin-top: 1.25rem;
-}
-
 .mr-2 {
   margin-right: 0.5rem;
 }
@@ -567,10 +563,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-radius: 0.375rem;
 }
 
-.rounded-lg {
-  border-radius: 0.5rem;
-}
-
 .rounded-sm {
   border-radius: 0.125rem;
 }
@@ -601,16 +593,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .bg-honey-yellow {
   --tw-bg-opacity: 1;
   background-color: rgb(247 179 56 / var(--tw-bg-opacity));
-}
-
-.bg-button-blue {
-  --tw-bg-opacity: 1;
-  background-color: rgb(72 167 230 / var(--tw-bg-opacity));
-}
-
-.bg-button-red {
-  --tw-bg-opacity: 1;
-  background-color: rgb(244 66 21 / var(--tw-bg-opacity));
 }
 
 .bg-slate-500 {
@@ -675,16 +657,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .p-1 {
   padding: 0.25rem;
-}
-
-.py-2 {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-
-.px-20 {
-  padding-left: 5rem;
-  padding-right: 5rem;
 }
 
 .align-top {
@@ -819,8 +791,44 @@ Ensure the default browser behavior of the `hidden` attribute.
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-.hide {
+.hiden {
   display: none;
+}
+
+.readBtn {
+  margin-top: 1.25rem;
+  border-radius: 0.5rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(72 167 230 / var(--tw-bg-opacity));
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
+.readBtn:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(72 167 230 / var(--tw-text-opacity));
+}
+
+.delBtn {
+  margin-top: 1.25rem;
+  border-radius: 0.5rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(244 66 21 / var(--tw-bg-opacity));
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+
+.delBtn:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(244 66 21 / var(--tw-text-opacity));
 }
 
 .checked\:border-blue-600:checked {
