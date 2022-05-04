@@ -2,11 +2,16 @@ function Book(author, title, pages) {
     this.author = author;
     this.title = title;
     this.pages = pages;
-    // this.read = read;
+    this.read = true;
     this.info = function () {
         return `The ${this.title} by ${this.author},  ${this.pages}, ${this.pages}`;
     };
 }
+
+Book.prototype.toggleRead = function () {
+    this.read == true ? (this.read = false) : (this.read = true);
+};
+
 const hobbit = new Book("J.R.R. Tolkien", "Hobbit", "295 pages", "not read");
 
 let myLibrary = [hobbit];
@@ -95,6 +100,15 @@ function createBookCard(book) {
 
     bookCard.dataset.bookIndex = myLibrary.length - 1;
 
+    readBtn.addEventListener("click", () => {
+        let bookIndex = bookCard.dataset.bookIndex;
+        // myLibrary[bookIndex].toggleRead();
+        book.read == true
+            ? (readBtn.textContent = "unread")
+            : (readBtn.textContent = "Read");
+        book.toggleRead();
+    });
+
     delBtn.addEventListener("click", () => {
         refreshBookIndexes();
         let bookIndex = bookCard.dataset.bookIndex;
@@ -102,12 +116,4 @@ function createBookCard(book) {
         myLibrary.splice(bookIndex, 1);
         myLibrary.forEach(createBookCard);
     });
-
 }
-
-// Add a button on each book’s display to remove the book from the library.
-// You will need to associate your DOM elements with the actual book objects in some way. One easy solution is giving them a data-attribute that corresponds to the index of the library array.
-
-// Add a button on each book’s display to change its read status.
-
-// To facilitate this you will want to create the function that toggles a book’s read status on your Book prototype instance.
