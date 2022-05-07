@@ -20,7 +20,7 @@ myLibrary.forEach(createBookCard);
 const bookForm = document.querySelector("#bookForm");
 const addBookBtn = document.querySelector(".addBookBtn");
 const formContainer = document.querySelector(".formContainer");
-const addBook = document.querySelector(".addBook");
+const submit = document.querySelector(".submit");
 
 bookForm.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -37,7 +37,6 @@ bookForm.addEventListener("submit", (event) => {
 });
 
 function addBookToLibrary(book) {
-    // do stuff here
     myLibrary.push(book);
     createBookCard(book);
 }
@@ -45,12 +44,11 @@ function addBookToLibrary(book) {
 addBookBtn.addEventListener("click", () =>
     // bring out the form
     {
-        formContainer.classList.remove("hiden");
+        formContainer.classList.toggle("hiden");
     }
 );
-addBook.addEventListener("click", () => {
-    formContainer.classList.add("hiden");
-    // theres no validation if the button hides the form. find a work around
+submit.addEventListener("click", () => {
+    formContainer.classList.toggle("hiden");
 });
 function refreshCardDisplay() {
     let books = document.querySelectorAll(".bookCard");

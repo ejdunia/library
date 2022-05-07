@@ -45,17 +45,16 @@
                 + Add Book
             </button>
         </div>
-        <div class="shelf flex gap-8 p-6 m-3">
-            <!-- main content -->
-            <!-- cards -->
-            <!-- create a library card with the title, author, pages and a read toggle -->
+        <div class="shelf flex flex-wrap justify-center gap-8 p-6 m-3">
+            <!-- cards go here -->
         </div>
+
         <div class="formContainer hiden">
             <form
                 id="bookForm"
                 action="#"
                 method="post"
-                class="border-gray-900 text-2xl w-50 bg-gradient-to-r from-indigo-dye to-space-cadet space-y-7 p-8 space-x-2 bg-slate-500 items-center rounded-md"
+                class="flex flex-col w-72 text-2xl mt-10 p-8 space-x-2 items-center rounded-md bg-gray-200 m-auto"
             >
                 <label for="author"
                     >Author
@@ -90,11 +89,8 @@
                     />
                 </label>
 
-                <button
-                    type="submit"
-                    class="bg-honey-yellow rounded-md addBook"
-                >
-                    <span class="flex p-1"
+                <button type="submit" class="bg-honey-yellow rounded-md submit">
+                    <span class="flex p-1 items-center"
                         ><svg
                             xmlns="http://www.w3.org/2000/svg"
                             class="h-6 w-6"
@@ -116,20 +112,3 @@
         </div>
     </body>
 </html>
-
-<!-- for the form  -->
-<!-- <div class="form-check flex flex-row items-center">
-                    <label
-                        class="form-check-label inline-block mr-2"
-                        for="read"
-                    >
-                        Read:
-                    </label>
-                    <input
-                        class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-button-blue checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
-                        type="checkbox"
-                        value=""
-                        id="read"
-                        checked
-                    />
-                </div> -->
